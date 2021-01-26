@@ -17,13 +17,13 @@ public class TheMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
         Parent root = FXMLLoader.load(getClass().getResource("/viewcontrol/ViewColorCalculator.fxml"));
         primaryStage.setTitle("Color Calculator");
         primaryStage.getIcons().add(new Image("/images/ColorWheel.png"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);

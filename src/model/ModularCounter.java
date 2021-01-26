@@ -270,7 +270,3 @@ public class ModularCounter {
 	*/
   private int modulus;
 }
-
-
-
-
