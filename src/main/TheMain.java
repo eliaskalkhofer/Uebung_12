@@ -1,3 +1,9 @@
+/**
+ * @class: TheMain
+ * @author: Elias Kalkhofer
+ * @date: 26.01.2021
+ */
+
 package main;
 
 import javafx.application.Application;
