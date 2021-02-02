@@ -100,4 +100,18 @@ public class ControllerColorCalculator {
 
         lbl_color.setStyle("-fx-background-color: " + CoCa.getHex() + ";");
     }
+
+    public void save() {
+
+        CoCa.saveFile();
+
+        refreshColor();
+    }
+
+    public void load() {
+
+        CoCa.loadFile();
+
+        refreshColor();
+    }
 }

@@ -89,12 +89,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button fx:id="btn_savecolor" mnemonicParsing="false" prefHeight="100.0" prefWidth="300.0" text="save color">
+            <Button fx:id="btn_savecolor" mnemonicParsing="false" onAction="#save" prefHeight="100.0" prefWidth="300.0" text="save color">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="btn_loadcolor" mnemonicParsing="false" prefHeight="100.0" prefWidth="300.0" text="load color">
+            <Button fx:id="btn_loadcolor" mnemonicParsing="false" onAction="#load" prefHeight="100.0" prefWidth="300.0" text="load color">
                <font>
                   <Font size="25.0" />
                </font>

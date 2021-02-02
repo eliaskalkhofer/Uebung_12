@@ -6,6 +6,8 @@
 
 package model;
 
+import java.io.*;
+
 public class ColorCalculator {
 
     private ModularCounter red;
@@ -124,14 +126,17 @@ public class ColorCalculator {
     }
 
     public int getRed() {
+
         return red.getValue();
     }
 
     public int getGreen() {
+
         return green.getValue();
     }
 
     public int getBlue() {
+
         return blue.getValue();
     }
 
@@ -152,5 +157,60 @@ public class ColorCalculator {
         else
             hex += Integer.toHexString(getBlue());
         return hex;
+    }
+
+    public void loadFile() {
+
+        try(FileReader fr = new FileReader("data/color.dat")) {
+
+            BufferedReader bufrea = new BufferedReader(fr);
+
+            if(bufrea.readLine().equals("Color File Version 1.0")) {
+
+                changeColorViaAbsoluteValue(ColorCode.RED, bufrea.readLine());
+                changeColorViaAbsoluteValue(ColorCode.GREEN, bufrea.readLine());
+                changeColorViaAbsoluteValue(ColorCode.BLUE, bufrea.readLine());
+
+                System.out.println("Erfolgreich!");
+            }
+
+            else {
+
+                System.out.println("Ladefehler!");
+            }
+        }
+
+        catch (IOException ex) {
+
+            System.out.println("Ladefehler!");
+        }
+    }
+
+    public void saveFile() {
+
+        try(FileWriter fw = new FileWriter("data/color.dat")) {
+
+            BufferedWriter bufwri = new BufferedWriter(fw);
+
+            bufwri.write("Color File Version 1.0");
+
+            bufwri.newLine();
+            bufwri.write(String.valueOf(getRed()));
+
+            bufwri.newLine();
+            bufwri.write(String.valueOf(getGreen()));
+
+            bufwri.newLine();
+            bufwri.write(String.valueOf(getBlue()));
+
+            bufwri.close();
+
+            System.out.println("Gespeichert!");
+        }
+        catch (IOException ex)
+        {
+            System.out.println("Speicherfehler!");
+        }
+
     }
 }
